@@ -1,39 +1,36 @@
-import PetCard from "../components/Petcard";
+import React, { useEffect } from "react";
 import { useStore } from "zustand";
-import { petsStore} from "../store/PetsKeeper";
+import { petsStore } from "../store/PetsKeeper";
+import PetCard from "../components/PetCard";
 import Search from "../components/Search";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
 import axios from "axios";
-// import AddPet from "../components/AddPets";
 
 function AllPets() {
   const pets = useStore(petsStore);
-  const [myPets, setMyPets] = useState([]);
 
   useEffect(() => {
-    // This will be the fetch to a specific user's pets
-    axios.get('https://magenta.onrender.com/pets')
-      .then((r) => setMyPets(r.data));
-  }, []);
-
-  useEffect(() => {
-    pets.setPetsStore(myPets);
-  }, [myPets]);
+    axios.get("https://magenta.onrender.com/pets").then((response) => {
+      pets.setPetsStore(response.data);
+    });
+  }, [pets]);
 
   return (
     <>
       <div className="header">
-        <h1 className="title"></Magenta></h1>
-        <Link exact to="/" className="link">Logout</Link>
-        <Link exact to="/mypets" className="link">Mypets</Link>
+        <h1 className="title">Magenta</h1>
+        <Link to="/" className="link">
+          Logout
+        </Link>
+        <Link to="/mypets" className="link">
+          Mypets
+        </Link>
         <Search />
       </div>
       <div className="pets-container">
-      {pets.petsList.map((pet)=>{
-     return <PetCard pet={pet}/>
-       })}
+        {pets.petsList.map((pet) => (
+          <PetCard key={pet.id} pet={pet} />
+        ))}
       </div>
     </>
   );
