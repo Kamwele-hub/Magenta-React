@@ -21,7 +21,7 @@ let other_pets = pets.petsData.filter((thispet)=>{
 })
 console.log(other_pets)
 axios
-.put(`https://philoxenia.onrender.com/pets/${pet.id}`,changePet)
+.put(`https://magenta.onrender.com/pets/${pet.id}`,changePet)
 .then((r) => pets.setPetsKeeper([...other_pets, changePet])
 );
 }

@@ -14,7 +14,7 @@ function AllPets() {
 
   useEffect(() => {
     // This will be the fetch to a specific user's pets
-    axios.get('https://philoxenia.onrender.com/pets')
+    axios.get('https://magenta.onrender.com/pets')
       .then((r) => setMyPets(r.data));
   }, []);
 
@@ -25,7 +25,7 @@ function AllPets() {
   return (
     <>
       <div className="header">
-        <h1 className="title">Philoxenia</h1>
+        <h1 className="title"></Magenta></h1>
         <Link exact to="/" className="link">Logout</Link>
         <Link exact to="/mypets" className="link">Mypets</Link>
         <Search />
