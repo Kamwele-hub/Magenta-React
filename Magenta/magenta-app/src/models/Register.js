@@ -7,6 +7,7 @@ function Register({ changeForm }) {
     password: "",
     phone: ""
   });
+  const [error, setError] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,13 +22,20 @@ function Register({ changeForm }) {
       },
       body: JSON.stringify(userData)
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Registration request failed.");
+        }
+      })
       .then((data) => {
         console.log("Registration successful:", data);
-        changeForm(); // Switch to the login form
+        changeForm();
       })
       .catch((error) => {
         console.error("Registration error:", error);
+        setError("An error occurred during registration.");
       });
   };
 
@@ -59,6 +67,7 @@ function Register({ changeForm }) {
         className="phone"
       />
       <button type="submit" className="register">Register</button>
+      {error && <p>{error}</p>}
     </form>
   );
 }
