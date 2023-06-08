@@ -17,7 +17,7 @@ function AddPet({user_id}){
     e.preventDefault()
     setdisplayForm(false)
     console.log(newPet)
-    axios.post(`https://philoxenia.onrender.com/pet`,newPet).then((r) =>
+    axios.post(`https://magenta.onrender.com/pet`,newPet).then((r) =>
     pets.setPetsStore([...pets.petsList, r.data])
 );
     }

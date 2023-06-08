@@ -10,7 +10,7 @@ function Login() {
   const [users,setUsers] = useState([])
   console.log(users)
   useEffect(() =>{
-   axios.get("https://philoxenia.onrender.com").then((r) =>
+   axios.get("https://magenta.onrender.com").then((r) =>
     setUsers(r.data),
     console.log(users)
    )
@@ -30,7 +30,7 @@ function Login() {
     if(exixting_user.length !== 0){
     if(exixting_user[0].password === login.password){
     
-      axios.get(`https://philoxenia.onrender.com/pets/${exixting_user[0].name}`).then((r) =>{
+      axios.get(`https://magenta.onrender.com/pets/${exixting_user[0].name}`).then((r) =>{
       if(r.data.length === 0){
         pets.setPetsStore([{
         id:null,

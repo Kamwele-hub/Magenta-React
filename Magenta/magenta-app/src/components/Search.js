@@ -6,7 +6,7 @@ function Search(){
 const pets = useStore(petsStore)
 const handleSearch = (e) => {
     console.log(e.target.value)
-axios.post("https://philoxenia.onrender.com/pets/search_all",{
+axios.post("https://magenta.onrender.com/pets/search_all",{
     query: e.target.value
 }).then( (r) =>
     pets.setPetsStore(r.data)

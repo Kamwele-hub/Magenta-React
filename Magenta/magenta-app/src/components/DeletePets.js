@@ -9,7 +9,7 @@ function Delete({pet}) {
    })
   const handleDelete = () => {
     axios
-      .delete(`https://philoxenia.onrender.com/pets/${pet.id}`)
+      .delete(`https://magenta.onrender.com/pets/${pet.id}`)
       .then(() => pets.setPetsStore(other_pets));
   };
   return <button onClick={handleDelete} id="delete-btn"> Delete</button>;

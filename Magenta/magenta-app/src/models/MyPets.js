@@ -1,6 +1,6 @@
 import { useStore } from "zustand";
 import { petsStore } from "../store/PetsKeeper";
-import PetCard from "../components/Petcard";
+import PetCard from "../components/PetCard";
 import Delete from "../components/DeletePets";
 import Edit from "../components/Edit";
 import AddPet from "../components/AddPets"
