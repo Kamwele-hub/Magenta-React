@@ -1,66 +1,52 @@
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useStore } from "zustand";
-import { petsStore } from "../store/PetsKeeper";
+import React, { useState } from "react";
 
-function Login() {
-  const pets = useStore(petsStore);
-  const [users, setUsers] = useState([]);
-  const [login, setLogin] = useState({
+function Login({ changeForm }) {
+  const [loginData, setLoginData] = useState({
     name: "",
-    password: "",
+    password: ""
   });
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch("http://localhost:9292/")
-      .then((response) => response.json())
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, []);
+  const [userData, setUserData] = useState(null); // State to store the user data
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    loginUser(loginData);
+  };
 
-    const existingUser = users.find((user) => user.name === login.name);
+  const loginUser = (userData) => {
+    fetch("http://localhost:9292/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userData)
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Login successful:", data);
+        if (data.success) {
+          // Update the user data state
+          setUserData(data.user);
+        } else {
+          console.log("Wrong details");
+        }
+      })
+      .catch((error) => {
+        console.error("Login error:", error);
+      });
+  };
 
-    if (existingUser) {
-      if (existingUser.password === login.password) {
-        fetch(`http://localhost:9292/pets/${existingUser.name}`, {
-          method: "POST",
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            const petsData = data;
-            if (petsData.length === 0) {
-              pets.setPetsStore([
-                {
-                  id: null,
-                  name: "",
-                  breed: "",
-                  image: "",
-                  user_id: existingUser.id,
-                },
-              ]);
-              navigate("/mypets");
-            } else {
-              pets.setPetsStore(petsData);
-              navigate("/mypets");
-            }
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      } else {
-        alert("Incorrect password");
-      }
-    } else {
-      alert("Incorrect name");
+  // Render the user data if available
+  const renderUserData = () => {
+    if (userData) {
+      return (
+        <div>
+          <p>Name: {userData.name}</p>
+          <p>Email: {userData.email}</p>
+          {/* Render other user data properties */}
+        </div>
+      );
     }
+    return null; // Render nothing if user data is not available
   };
 
   return (
@@ -68,16 +54,20 @@ function Login() {
       <form onSubmit={handleSubmit} className="signin">
         <input
           type="text"
-          placeholder="name"
-          onChange={(e) => setLogin({ ...login, name: e.target.value })}
-        ></input>
+          placeholder="Name"
+          onChange={(e) => setLoginData({ ...loginData, name: e.target.value })}
+        />
         <input
           type="password"
-          placeholder="password"
-          onChange={(e) => setLogin({ ...login, password: e.target.value })}
-        ></input>
-        <button>Login</button>
+          placeholder="Password"
+          onChange={(e) =>
+            setLoginData({ ...loginData, password: e.target.value })
+          }
+        />
+        <button type="submit">Login</button>
       </form>
+      {/* Render user data */}
+      {renderUserData()}
     </div>
   );
 }

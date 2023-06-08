@@ -14,7 +14,7 @@ function Register({ changeForm }) {
   };
 
   const registerUser = (userData) => {
-    fetch("https://magenta.onrender.com/user", {
+    fetch("http://localhost:9292/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

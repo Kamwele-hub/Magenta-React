@@ -1,46 +1,31 @@
+import React, { useEffect, useState } from "react";
 import { useStore } from "zustand";
 import { petsStore } from "../store/PetsKeeper";
 import PetCard from "../components/PetCard";
-import Delete from "../components/DeletePets";
-import Edit from "../components/Edit";
-import AddPet from "../components/AddPets";
-import { Link } from "react-router-dom";
 
 function Mypets() {
-  const myPets = useStore(petsStore);
+  const [myPets, setMyPets] = useState([]);
+  const fetchMyPets = useStore((state) => state.fetchMyPets);
+
+  useEffect(() => {
+    fetchMyPets()
+      .then((data) => {
+        setMyPets(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching my pets:", error);
+      });
+  }, [fetchMyPets]);
 
   return (
-    <>
-      <div className="container">
-        <h1>Petfinder</h1>
-
-        <div className="links">
-          <Link to="/allpets" className="link">
-            all pets
-          </Link>
-          <Link to="/" className="link">
-            Logout
-          </Link>
-          <div className="add-pet">
-            <AddPet user_id={myPets.petsList[0]?.user_id} />
-          </div>
-        </div>
-
-        <div className="card-container">
-          {myPets.petsList.map((pet) => {
-            return (
-              <div key={pet.id}>
-                <PetCard pet={pet} />
-                <div className="pet-buttons">
-                  <Delete pet={pet} />
-                  <Edit pet={pet} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+    <div className="container">
+      <h1>Petfinder</h1>
+      <div className="card-container">
+        {myPets.map((pet) => (
+          <PetCard key={pet.id} pet={pet} />
+        ))}
       </div>
-    </>
+    </div>
   );
 }
 
