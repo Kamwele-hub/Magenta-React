@@ -5,8 +5,7 @@ function Login({ changeForm }) {
     name: "",
     password: ""
   });
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
+  const [userData, setUserData] = useState(null); // State to store the user data
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,37 +20,33 @@ function Login({ changeForm }) {
       },
       body: JSON.stringify(userData)
     })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Login request failed.");
-        }
-      })
+      .then((response) => response.json())
       .then((data) => {
         console.log("Login successful:", data);
         if (data.success) {
+          // Update the user data state
           setUserData(data.user);
         } else {
-          setError("Wrong details");
+          console.log("Wrong details");
         }
       })
       .catch((error) => {
         console.error("Login error:", error);
-        setError("An error occurred during login.");
       });
   };
 
+  // Render the user data if available
   const renderUserData = () => {
     if (userData) {
       return (
         <div>
           <p>Name: {userData.name}</p>
           <p>Email: {userData.email}</p>
+          {/* Render other user data properties */}
         </div>
       );
     }
-    return null;
+    return null; // Render nothing if user data is not available
   };
 
   return (
@@ -71,7 +66,7 @@ function Login({ changeForm }) {
         />
         <button type="submit">Login</button>
       </form>
-      {error && <p>{error}</p>}
+      {/* Render user data */}
       {renderUserData()}
     </div>
   );
