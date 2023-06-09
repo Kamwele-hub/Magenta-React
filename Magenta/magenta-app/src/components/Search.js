@@ -7,14 +7,11 @@ function Search() {
   const handleSearch = (e) => {
     console.log(e.target.value);
 
-    fetch("http://localhost:9292//pets/search_all", {
-      method: "POST",
+    fetch("http://localhost:9292/pets/search_all?query=" + e.target.value, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        query: e.target.value,
-      }),
     })
       .then((response) => response.json())
       .then((data) => {

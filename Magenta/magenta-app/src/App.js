@@ -12,9 +12,9 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/mypets" element={<Mypets />} />
-        <Route exact path="/allpets" element={<AllPets />} />
-        <Route exact path="/register" element={<Register changeForm={() => {}} />} />
+        <Route exact path="../models/mypets" element={<Mypets />} />
+        <Route exact path="../models/allpets" element={<AllPets />} />
+        <Route exact path="./models/register" element={<Register changeForm={() => {}} />} />
       </Routes>
     </Router>
   );
