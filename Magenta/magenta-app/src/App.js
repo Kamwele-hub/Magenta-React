@@ -4,17 +4,20 @@ import Home from "./models/Home";
 import AllPets from "./models/AllPets";
 import Mypets from "./models/MyPets";
 import Register from "./models/Register.js";
-import CSS from "./CSS/App.css"
-import NavBar from "./components/NavBar.js"
+import   "./App.css";
+import Navigation from "./components/NavBar"
+import Delete from "./components/DeletePets";
+import Add from "./components/AddPets";
+
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="../models/mypets" element={<Mypets />} />
-        <Route exact path="../models/allpets" element={<AllPets />} />
-        <Route exact path="./models/register" element={<Register changeForm={() => {}} />} />
+        <Route exact path="/mypets" element={<Mypets />} />
+        <Route exact path="/allpets" element={<AllPets />} />
+        <Route exact path="/register" element={<Register changeForm={() => {}} />} />
       </Routes>
     </Router>
   );

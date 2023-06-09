@@ -33,38 +33,25 @@ function AddPet({ user_id }) {
       });
   };
 
-  if (displayForm === false) {
-    return (
-      <button onClick={() => setdisplayForm(true)}>Add new pet</button>
-    );
-  } else {
-    return (
-      <form onSubmit={handleSubmit} className="mypets">
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(e) => {
-            setNewPet({ ...newPet, name: e.target.value });
-          }}
-        ></input>
-        <input
-          type="text"
-          placeholder="breed"
-          onChange={(e) => {
-            setNewPet({ ...newPet, breed: e.target.value });
-          }}
-        ></input>
-        <input
-          type="url"
-          placeholder="image"
-          onChange={(e) => {
-            setNewPet({ ...newPet, image_url: e.target.value });
-          }}
-        ></input>
-        <button type="submit">Add new Pet</button>
-      </form>
-    );
-  }
+  if(displayForm === false){
+    return <button 
+    onClick={() => setdisplayForm(true)
+    } >Add new pet</button>
+}else{
+    return <form onSubmit={handleSubmit} className="mypets">
+    <input  type="text" placeholder="name" onChange={(e) =>{
+    setNewPet({...newPet, "name":e.target.value})
+    }}></input>
+    <input type="text" placeholder="breed" onChange={(e) =>{
+    setNewPet({...newPet, "breed":e.target.value})
+    }}></input>
+    <input type="url" placeholder="image" onChange={(e) =>{
+    setNewPet({...newPet, "image_url":e.target.value})
+    }}></input>
+    <button type="submit"  >Add new Pet</button>
+    </form>
+}
+
 }
 
 export default AddPet;

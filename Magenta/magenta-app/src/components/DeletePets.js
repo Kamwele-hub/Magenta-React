@@ -10,10 +10,11 @@ function Delete({ pet }) {
     });
 
     fetch(`http://localhost:9292/pets/${pet.id}`, {
-      method: "DELETE",
+      method: "PUT",
     })
+      .then((response) => response.json())
       .then(() => {
-        pets.setPetsStore(updatedPetsList);
+        pets.setPetsStore({ petsList: updatedPetsList }); // Update the state correctly
       })
       .catch((error) => {
         console.error("Error:", error);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Register({ changeForm }) {
   const [newPetOwner, setNewPetOwner] = useState({
@@ -38,6 +38,18 @@ function Register({ changeForm }) {
         setError("An error occurred during registration.");
       });
   };
+
+  useEffect(() => {
+    fetch("http://localhost:9292/user",
+    {method:"POST",
+    headers:{"Content-Type": "application/json"},
+    body: JSON.stringify(newPetOwner)
+  
+  })
+    .then((res)=> res.json())
+    .then((error)=> console.log(error))
+    
+  }, []);
 
   return (
     <form onSubmit={handleSubmit} className="signup">

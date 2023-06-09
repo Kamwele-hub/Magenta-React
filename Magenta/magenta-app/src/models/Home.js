@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import Register from './Register';
+import Login from './Login';
+import AllPets from './AllPets';
+import Mypets from './MyPets';
+import Navbar from '../components/NavBar';
+import "../App.css";
+//import Edit from  '../components/Edit'
+
 
 function Home() {
   const [email, setEmail] = useState('');
@@ -39,14 +47,15 @@ function Home() {
     height: '100vh',
   };
 
-  const headingStyle = {
-    fontSize: '3rem',
-    marginBottom: '1rem',
-  };
-
   return (
     <div style={centerStyle}>
-      <h1 style={headingStyle}>Magenta's PetFinder App</h1>
+   
+
+<AllPets/>
+<Navbar/>
+{/* <Edit/> */}
+    
+      <h1>Magenta's PetFinder App</h1>
       {loggedIn ? (
         <p>You are logged in.</p>
       ) : (
