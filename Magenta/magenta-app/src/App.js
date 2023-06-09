@@ -5,7 +5,7 @@ import AllPets from "./models/AllPets";
 import Mypets from "./models/MyPets";
 import Register from "./models/Register.js";
 import   "./App.css";
-import Navigation from "./components/NavBar"
+import Navbar from "./components/NavBar"
 import Delete from "./components/DeletePets";
 import Add from "./components/AddPets";
 

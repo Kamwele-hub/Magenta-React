@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import Register from './Register';
 import Login from './Login';
 import AllPets from './AllPets';
-import Mypets from './MyPets';
-import Navbar from '../components/NavBar';
-import "../App.css";
-// import Edit from  '../components/Edit'
+import Layout from '../components/Layout';
+import MyPets from "./MyPets"
+// Import other components
 
 function Home() {
   const [displayRegister, displayLogin] = useState(true);
@@ -16,30 +15,34 @@ function Home() {
 
   if (displayRegister === true) {
     return (
-      <>
+      <div>
         <h1>Magenta Petfinder App</h1>
         <Register changeForm={changeForm} />
         <span onClick={changeForm} className="lUser">
           Already registered?
-          <div className="hover">
-            Go to login
-          </div>
+          <div className="hover">Go to login</div>
         </span>
-        <AllPets /> {/* <AllPets /> component included here */}
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div>
         <h1>Find Pets</h1>
         <Login changeForm={changeForm} />
         <p onClick={changeForm} className="lUser">
           Go back to registration
         </p>
-        <AllPets /> {/* <AllPets /> component included here */}
-      </>
+      </div>
     );
   }
 }
 
-export default Home;
+function HomeWithLayout() {
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
+}
+
+export default HomeWithLayout;

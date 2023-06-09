@@ -1,3 +1,5 @@
+/* App.css */
+
 .App {
   text-align: center;
 }
@@ -59,10 +61,10 @@
 }
 
 .mypets-container .pet-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  justify-items: center;
   margin-top: 20px;
 }
 
@@ -80,24 +82,45 @@
 }
 
 .all-pets-container .card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  justify-items: center;
   margin-top: 20px;
 }
 
-.pet-image {
-  width: 300px;
-  height: 300px;
-}
-
-
-/* App.css */
-.card-container {
+.pet-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.pet-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pet-card .pet-details {
+  width: 100%;
+}
+
+.pet-card .pet-details h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.pet-card .pet-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #fff;
 }
 
 .register-form,
@@ -122,7 +145,7 @@
 }
 
 .register-form button,
-.login-form button {
+.login-form buttaon {
   display: block;
   width: 100%;
   padding: 10px;
