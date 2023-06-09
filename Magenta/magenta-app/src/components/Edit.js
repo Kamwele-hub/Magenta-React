@@ -23,7 +23,7 @@ function Edit({ pet }) {
     });
 
     fetch(`http://localhost:9292/pets/${pet.id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
