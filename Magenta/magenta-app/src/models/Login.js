@@ -14,7 +14,7 @@ function Login({ changeForm }) {
 
   const loginUser = (userData) => {
     fetch("http://localhost:9292/login", {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json"
       },
