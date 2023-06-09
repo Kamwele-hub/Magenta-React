@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+MAGENTA PET FINDER APP!
+PetFinder App
+Here is the link to the backend: https://github.com/Kamwele-hub/Magenta-Rb.git
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This is a PetFinder app built with React. It allows users to register, login, view available pets, add new pets, edit pet information, and log out.
 
-In the project directory, you can run:
+Components
+The app is composed of the following components:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Registering
+File: Register.js
+Path: src/components/Register.js
+Description: Component for user registration. It displays a form where users can enter their details to create an account.
+Logging in
+File: Login.js
+Path: src/components/Login.js
+Description: Component for user login. It displays a form where users can enter their email and password to log into their account.
+AllPets
+File: AllPets.js
+Path: src/components/AllPets.js
+Description: Component that displays all available pets. It fetches and renders a list of pets from the backend server.
+MyPets
+File: MyPets.js
+Path: src/components/MyPets.js
+Description: Component that displays the pets owned by the logged-in user. It fetches and renders a list of pets associated with the user.
+Navbar
+File: Navbar.js
+Path: src/components/Navbar.js
+Description: Component for the navigation bar. It provides links for navigating between different pages and options for adding new pets and logging out.
+AddPet
+File: AddPet.js
+Path: src/components/AddPet.js
+Description: Component for adding a new pet. It displays a form where users can enter details about a pet and submit it to be added to the database.
+Edit
+File: Edit.js
+Path: src/components/Edit.js
+Description: Component for editing pet information. It allows users to update the name, breed, and image of a pet and submit the changes.
+PetCard
+File: PetCard.js
+Path: src/components/PetCard.js
+Description: Component that represents a single pet card. It displays the details of a pet, such as the name, breed, and image.
+Search
+File: Search.js
+Path: src/components/Search.js
+Description: Component for searching pets. It provides a search input field where users can enter keywords to filter the list of pets.
+Home
+File: Home.js
+Path: src/components/Home.js
+Description: Component for the homepage. It displays the app's title, login form, and a list of pets.
+App
+File: App.js
+Path: src/App.js
+Description: The root component of the application. It handles routing and renders the necessary components based on the current URL.
