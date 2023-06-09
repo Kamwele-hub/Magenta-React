@@ -1,7 +1,11 @@
-/* App.css */
-
 .App {
   text-align: center;
+}
+
+body {
+  background-color: black;
+  text-align: center;
+  color: #fff;
 }
 
 .App-logo {
@@ -81,6 +85,11 @@
   margin-bottom: 10px;
 }
 
+.pet-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .all-pets-container .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -89,7 +98,7 @@
   margin-top: 20px;
 }
 
-.pet-card {
+.petcard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,11 +106,13 @@
   background-color: #333;
   padding: 20px;
   border-radius: 8px;
+  width: 40%;
+  margin: 2%;
 }
 
 .pet-card img {
   width: 100%;
-  max-height: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -121,6 +132,11 @@
   margin: 5px 0;
   font-size: 14px;
   color: #fff;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .register-form,
@@ -145,7 +161,7 @@
 }
 
 .register-form button,
-.login-form buttaon {
+.login-form button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -153,4 +169,99 @@
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+img {
+  max-width: 60%;
+}
+
+.signup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  left: 30%;
+  background-color: #fff;
+  padding: 2%;
+  border-radius: 20px;
+  color: black;
+}
+
+.name {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.email {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.password {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.phone {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+button {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.signin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  left: 30%;
+  background-color: #fff;
+  padding: 2%;
+  border-radius: 20px;
+  color: black;
+}
+
+input {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+  height: 50px;
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  margin: 4%;
+  position: relative;
+  top: -80%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
