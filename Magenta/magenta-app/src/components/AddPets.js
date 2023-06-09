@@ -8,6 +8,7 @@ function AddPet({ user_id }) {
   const [newPet, setNewPet] = useState({
     name: "",
     breed: "",
+    age: "",
     image_url: "",
     user_id: user_id,
   });
@@ -17,7 +18,7 @@ function AddPet({ user_id }) {
     setdisplayForm(false);
     console.log(newPet);
 
-    fetch("http://localhost:9292/pet", {
+    fetch("http://localhost:9292", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

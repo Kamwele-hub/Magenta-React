@@ -17,6 +17,11 @@ const Navbar = () => {
           <Link className="menu" to="/mypets">
             MyPets
           </Link>
+          <li>
+          <Link className="menu" to="/add">
+            AddPet
+          </Link>
+          </li>
         </li>
         <li className="nav-right">
           <Link className="menu" to="/login">
