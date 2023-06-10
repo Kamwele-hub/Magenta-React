@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.App {
+  text-align: center;
+}
+
 body {
   background-color: black;
   text-align: center;
@@ -113,6 +117,265 @@ body {
 .pet-card img {
   width: 100%;
   height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pet-card .pet-details {
+  width: 100%;
+}
+
+.pet-card .pet-details h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.pet-card .pet-details p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register-form,
+.login-form {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.register-form h2,
+.login-form h2 {
+  margin-top: 0;
+}
+
+.register-form input,
+.login-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.register-form button,
+.login-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 60%;
+}
+
+.signup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  left: 30%;
+  background-color: #fff;
+  padding: 2%;
+  border-radius: 20px;
+  color: black;
+}
+
+.name {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.email {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.password {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.phone {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+button {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.signin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  left: 30%;
+  background-color: #fff;
+  padding: 2%;
+  border-radius: 20px;
+  color: black;
+}
+
+input {
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+  height: 50px;
+  text-decoration: none;
+}
+
+li {
+  text-decoration: none;
+  margin: 4%;
+  position: relative;
+  top: -80%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.mypets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.mypets-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.mypets-container .pet-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.all-pets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.all-pets-container h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pet-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.all-pets-container .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.petcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 40%;
+  margin: 2%;
+}
+
+.pet-card img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;

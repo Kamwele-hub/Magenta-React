@@ -2,6 +2,7 @@ import React from "react";
 import Delete from "./DeletePets";
 import  "../App.css";
 import {useStore} from "zustand"
+import MyPets from "../models/MyPets";
 
 function PetCard({ pet }) {
   return (

@@ -4,8 +4,9 @@ import Home from "./models/Home";
 import AllPets from "./models/AllPets";
 import Mypets from "./models/MyPets";
 import Register from "./models/Register";
-import AddPet from "./components/AddPets";
+//import AddPet from "./components/AddPets";
 import Navbar from "./components/NavBar";
+import Edit from "./components/Edit"
 
 
 function createForm(newPet) {
@@ -39,11 +40,11 @@ function App() {
           path="/register"
           element={<Register changeForm={() => {}} />}
         />
-        <Route
+        {/* <Route
           exact
           path="/addpet"
           element={<AddPet createForm={createForm} />}
-        />
+        /> */}
       </Routes>
     </Router>
   );

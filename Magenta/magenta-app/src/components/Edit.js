@@ -1,83 +1,95 @@
 import React, { useState } from 'react';
-import { useStore } from 'zustand';
-import { petsStore } from '../store/PetsKeeper';
 
-function Edit({ pet }) {
-  const pets = useStore(petsStore);
-  const [displayForm, setDisplayForm] = useState(false);
-  const [changePet, setChangePet] = useState({
-    name: '',
-    breed: '',
-    image: '',
-    user_id: pet.user_id,
-  });
+const Edit = ({ pet }) => {
+  const [editedPet, setEditedPet] = useState(pet);
+  const [editSuccess, setEditSuccess] = useState(false);
 
-  console.log(changePet);
+  const handleNameChange = (e) => {
+    setEditedPet({ ...editedPet, name: e.target.value });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setDisplayForm(false);
+  const handleAgeChange = (e) => {
+    setEditedPet({ ...editedPet, age: e.target.value });
+  };
 
-    let other_pets = pets.petsData.filter((thispet) => {
-      return thispet.id !== pet.id;
-    });
-
-    fetch(`http://localhost:9292/pets/${pet.id}`, {
-      method: 'PATCH',
+  const savePet = () => {
+    fetch(`http://localhost:9292/pets/${editedPet.id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(changePet), // Send the updated pet data in the request body
+      body: JSON.stringify(editedPet),
     })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Update request failed.');
-        }
-      })
+      .then((response) => response.json())
       .then((data) => {
-        pets.setPetsKeeper([...other_pets, data]);
+        setEditSuccess(true);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
   };
 
-  if (displayForm === false) {
-    return (
-      <button onClick={() => setDisplayForm(true)}>
-        Update pet
-      </button>
-    );
-  } else {
-    return (
-      <form onSubmit={handleSubmit} id="input">
-        <input
-          type="text"
-          placeholder="name"
-          onChange={(e) => {
-            setChangePet({ ...changePet, name: e.target.value });
-          }}
-        ></input>
-        <input
-          type="text"
-          placeholder="breed"
-          onChange={(e) => {
-            setChangePet({ ...changePet, breed: e.target.value });
-          }}
-        ></input>
-        <input
-          type="url"
-          placeholder="add image"
-          onChange={(e) => {
-            setChangePet({ ...changePet, image: e.target.value });
-          }}
-        ></input>
-        <button type="submit">Update</button>
+  return (
+    <div className="edit-popup">
+      <h3>Edit Pet</h3>
+      <form>
+        <div className="form-row">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" value={editedPet.name} onChange={handleNameChange} />
+        </div>
+
+        <div className="form-row">
+          <label htmlFor="age">Age:</label>
+          <input type="number" id="age" value={editedPet.age} onChange={handleAgeChange} />
+        </div>
+
+        <div className="form-row">
+          <button type="button" onClick={savePet}>Save</button>
+        </div>
       </form>
-    );
-  }
-}
+
+      {editSuccess && <p className="edit-success">Edit Successful!</p>}
+
+      <style jsx>{`
+        .edit-popup {
+          padding: 20px;
+          border: 1px solid #ccc;
+          background-color: #333;
+          color: #fff;
+        }
+
+        .form-row {
+          margin-bottom: 10px;
+        }
+
+        label {
+          font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+          width: 100%;
+          padding: 5px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+        }
+
+        button {
+          padding: 5px 10px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+
+        .edit-success {
+          margin-top: 10px;
+          color: green;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default Edit;

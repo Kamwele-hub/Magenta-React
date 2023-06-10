@@ -4,6 +4,7 @@ import Login from './Login';
 import AllPets from './AllPets';
 import Layout from '../components/Layout';
 import MyPets from "./MyPets";
+import Edit from "../components/Edit"
 
 function Home() {
   const [displayRegister, setDisplayRegister] = useState(true);
