@@ -5,11 +5,11 @@ const Edit = ({ pet }) => {
   const [editSuccess, setEditSuccess] = useState(false);
 
   const handleNameChange = (e) => {
-    setEditedPet({ ...editedPet, name: e.target.value });
+    setEditedPet((prevPet) => ({ ...prevPet, name: e.target.value }));
   };
 
   const handleAgeChange = (e) => {
-    setEditedPet({ ...editedPet, age: e.target.value });
+    setEditedPet((prevPet) => ({ ...prevPet, age: e.target.value }));
   };
 
   const savePet = () => {
