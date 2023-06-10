@@ -10,7 +10,7 @@ function Delete({ pet }) {
     });
 
     fetch(`http://localhost:9292/pets/${pet.id}`, {
-      method: "PUT",
+      method: "DELETE",
     })
       .then((response) => response.json())
       .then(() => {
