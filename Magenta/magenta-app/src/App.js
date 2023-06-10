@@ -4,13 +4,11 @@ import Home from "./models/Home";
 import AllPets from "./models/AllPets";
 import Mypets from "./models/MyPets";
 import Register from "./models/Register";
-//import AddPet from "./components/AddPets";
+import AddPet from "./components/AddPets";
 import Navbar from "./components/NavBar";
-import Edit from "./components/Edit"
-
+import Edit from "./components/Edit";
 
 function createForm(newPet) {
-  // Perform form submission or API request to add the new pet
   fetch("http://localhost:9292/pet", {
     method: "POST",
     headers: {
@@ -21,6 +19,7 @@ function createForm(newPet) {
     .then((response) => response.json())
     .then((data) => {
       // Handle the response data or update the pet list in the state
+      console.log("New pet added:", data);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -40,11 +39,11 @@ function App() {
           path="/register"
           element={<Register changeForm={() => {}} />}
         />
-        {/* <Route
+        <Route
           exact
           path="/addpet"
           element={<AddPet createForm={createForm} />}
-        /> */}
+        />
       </Routes>
     </Router>
   );
