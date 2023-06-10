@@ -3,17 +3,16 @@ import Register from './Register';
 import Login from './Login';
 import AllPets from './AllPets';
 import Layout from '../components/Layout';
-import MyPets from "./MyPets"
-// Import other components
+import MyPets from "./MyPets";
 
 function Home() {
-  const [displayRegister, displayLogin] = useState(true);
+  const [displayRegister, setDisplayRegister] = useState(true);
 
   const changeForm = () => {
-    displayLogin(!displayRegister);
+    setDisplayRegister(!displayRegister);
   };
 
-  if (displayRegister === true) {
+  if (displayRegister) {
     return (
       <div>
         <h1>Magenta Petfinder App</h1>

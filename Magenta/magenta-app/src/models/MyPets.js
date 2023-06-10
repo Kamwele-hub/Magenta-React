@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useStore } from 'zustand';
-import { petsStore } from '../store/PetsKeeper';
 import PetCard from '../components/PetCard';
 import Layout from '../components/Layout';
-// Import other components
 
 function MyPets() {
   const [myPets, setMyPets] = useState([]);
-  // const fetchMyPets = useStore((state) => state.fetchMyPets);
 
   useEffect(() => {
-    fetch('http://localhost:9292/pets')
+    fetch('http://localhost:9292/mypets')
       .then((response) => response.json())
       .then((data) => {
         setMyPets(data);
@@ -22,9 +18,9 @@ function MyPets() {
 
   return (
     <Layout>
-      <div className="pet-container">
-        <h1>Petfinder</h1>
-        <div className="pet-container">
+      <div className="mypets-container">
+        <h1>My Pets</h1>
+        <div className="pet-card-container">
           {myPets.map((pet) => (
             <PetCard key={pet.id} pet={pet} />
           ))}

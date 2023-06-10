@@ -7,6 +7,7 @@ import Register from "./models/Register";
 import AddPet from "./components/AddPets";
 import Navbar from "./components/NavBar";
 
+
 function createForm(newPet) {
   // Perform form submission or API request to add the new pet
   fetch("http://localhost:9292/pet", {
